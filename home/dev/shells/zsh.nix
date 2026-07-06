@@ -23,7 +23,6 @@
       "/" = "cd /";
 
       e = "nvim .";
-      cat = "bat";
       lg = "lazygit";
 
       git = "LC_ALL=en_US git";

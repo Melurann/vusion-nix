@@ -10,17 +10,13 @@ local utils = require("user.utils")
 
 local M = {}
 
-local TERM = os.getenv("TERM")
-
 -- Normal --
 -- Disable Space bar since it'll be used as the leader key
 nnoremap("<space>", "<nop>", { desc = "Disable space bar" })
 
--- Window + better kitty navigation
+-- Window navigation (tmux-aware)
 nnoremap("<C-j>", function()
-	if vim.fn.exists(":KittyNavigateDown") ~= 0 and TERM == "xterm-kitty" then
-		vim.cmd.KittyNavigateDown()
-	elseif vim.fn.exists(":NvimTmuxNavigateDown") ~= 0 then
+	if vim.fn.exists(":NvimTmuxNavigateDown") ~= 0 then
 		vim.cmd.NvimTmuxNavigateDown()
 	else
 		vim.cmd.wincmd("j")
@@ -28,9 +24,7 @@ nnoremap("<C-j>", function()
 end, { desc = "Navigate down" })
 
 nnoremap("<C-k>", function()
-	if vim.fn.exists(":KittyNavigateUp") ~= 0 and TERM == "xterm-kitty" then
-		vim.cmd.KittyNavigateUp()
-	elseif vim.fn.exists(":NvimTmuxNavigateUp") ~= 0 then
+	if vim.fn.exists(":NvimTmuxNavigateUp") ~= 0 then
 		vim.cmd.NvimTmuxNavigateUp()
 	else
 		vim.cmd.wincmd("k")
@@ -38,9 +32,7 @@ nnoremap("<C-k>", function()
 end, { desc = "Navigate up" })
 
 nnoremap("<C-l>", function()
-	if vim.fn.exists(":KittyNavigateRight") ~= 0 and TERM == "xterm-kitty" then
-		vim.cmd.KittyNavigateRight()
-	elseif vim.fn.exists(":NvimTmuxNavigateRight") ~= 0 then
+	if vim.fn.exists(":NvimTmuxNavigateRight") ~= 0 then
 		vim.cmd.NvimTmuxNavigateRight()
 	else
 		vim.cmd.wincmd("l")
@@ -48,9 +40,7 @@ nnoremap("<C-l>", function()
 end, { desc = "Navigate right" })
 
 nnoremap("<C-h>", function()
-	if vim.fn.exists(":KittyNavigateLeft") ~= 0 and TERM == "xterm-kitty" then
-		vim.cmd.KittyNavigateLeft()
-	elseif vim.fn.exists(":NvimTmuxNavigateLeft") ~= 0 then
+	if vim.fn.exists(":NvimTmuxNavigateLeft") ~= 0 then
 		vim.cmd.NvimTmuxNavigateLeft()
 	else
 		vim.cmd.wincmd("h")
@@ -189,12 +179,6 @@ end, { desc = "Format current buffer" })
 
 -- Press leader rw to rotate open windows
 nnoremap("<leader>rw", ":RotateWindows<cr>", { desc = "Rotate windows" })
-
--- Press gx to open the link under the cursor
-nnoremap("gx", ":sil !open <cWORD><cr>", { silent = true, desc = "Open link under cursor" })
-
--- TSC autocommand keybind to run TypeScript's tsc
-nnoremap("<leader>tc", ":TSC<cr>", { desc = "TypeScript Compile" })
 
 -- Harpoon keybinds --
 -- Open harpoon ui

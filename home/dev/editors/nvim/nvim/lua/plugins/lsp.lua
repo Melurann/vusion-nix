@@ -43,17 +43,7 @@ return {
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
             local servers = {
                 -- LSP Servers
-                rust_analyzer = {},
-                -- zls = {
-                --     on_attach = on_attach,
-                --     cmd = { "zls" },
-                --     filetypes = { "zig", "zir" },
-                --     root_dir = require("lspconfig.util").root_pattern("zls.json", "build.zig", ".git"),
-                --     single_file_support = true,
-                -- },
-                -- roslyn = {},
                 clangd = {},
-                gopls = {},
                 nixd = {
                     settings = {
                         nixd = {
@@ -65,30 +55,6 @@ return {
 
                 },
                 bashls = {},
-                cssls = {},
-                eslint = {
-                    cmd = { "vscode-eslint-language-server", "--stdio" },
-                    settings = {
-                        format = true,                            -- Ensure ESLint can handle formatting
-                        workingDirectory = { mode = "location" }, -- Use the working directory where `eslint.config.js` resides
-                    },
-                    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
-                    root_dir = function(fname)
-                        return require("lspconfig.util").root_pattern(
-                            ".eslintrc",
-                            ".eslintrc.js",
-                            ".eslintrc.cjs",
-                            ".eslintrc.json",
-                            ".eslintrc.yaml",
-                            ".eslintrc.yml",
-                            "eslint.config.js",
-                            "eslint.config.mjs",
-                            "eslint.config.cjs"
-                        )(fname) or require("lspconfig.util").find_git_ancestor(fname)
-                    end,
-                },
-                html = {},
-                jsonls = {},
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -106,9 +72,7 @@ return {
                         },
                     },
                 },
-                marksman = {},
                 pyright = {},
-                yamlls = {},
             }
 
             -- Iterate over our servers and set them up
@@ -143,9 +107,8 @@ return {
                 stop_after_first = true,
             },
             formatters_by_ft = {
-                javascript = { "prettierd", "prettier" },
-                typescript = { "prettierd", "prettier" },
-                typescriptreact = { "prettierd", "prettier" },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
                 lua = { "stylua" },
             },
         },

@@ -17,17 +17,11 @@ return {
             require("nvim-treesitter").setup({
                 ensure_installed = {
                     "c",
-                    "rust",
-                    "zig",
-                    "go",
                     "cpp",
+                    "python",
                     "bash",
-                    "css",
-                    "html",
-                    "json",
                     "lua",
                     "markdown",
-                    "typescript",
                     -- "yaml", This is currently borked see: https://github.com/ikatyang/tree-sitter-yaml/issues/53
                 },
             })

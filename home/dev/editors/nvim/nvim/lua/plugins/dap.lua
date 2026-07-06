@@ -3,10 +3,16 @@ return {
 	config = function()
 		local dap = require("dap")
 
-		-- Example configuration
+		-- NixOS has no /usr/bin; resolve lldb-dap (or the older lldb-vscode
+		-- name) from PATH instead of hardcoding an FHS path.
+		local lldb_adapter = vim.fn.exepath("lldb-dap")
+		if lldb_adapter == "" then
+			lldb_adapter = vim.fn.exepath("lldb-vscode")
+		end
+
 		dap.adapters.lldb = {
 			type = "executable",
-			command = "/usr/bin/lldb-vscode", -- adjust as needed
+			command = lldb_adapter,
 			name = "lldb",
 		}
 
