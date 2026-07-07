@@ -64,7 +64,6 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              sharedModules = [stylix.homeManagerModules.stylix];
               users.${user.name} = import ./hosts/home.nix;
               extraSpecialArgs = {
                 inherit inputs;
