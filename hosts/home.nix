@@ -1,8 +1,4 @@
-{
-  user,
-  inputs,
-  ...
-}: {
+{user, ...}: {
   imports = [
     ../home
   ];
