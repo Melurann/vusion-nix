@@ -12,7 +12,7 @@
 
   users.users.${user.name} = {
     isNormalUser = true;
-    extraGroups = ["wheel" "input" "docker" "networkmanager"];
+    extraGroups = ["wheel" "video" "input" "docker" "networkmanager" "tty"];
 
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true; # home-manager enables the shell
