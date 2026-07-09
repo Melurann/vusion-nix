@@ -17,5 +17,15 @@
       HandlePowerKey = "ignore";
       HandlePowerKeyLongPress = "poweroff";
     };
+
+    kmscon = {
+      enable = true;
+      hwRender = true;
+
+      extraConfig = ''
+        drm = true;
+        xkb-layout=de;
+      '';
+    };
   };
 }
