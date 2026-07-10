@@ -1,6 +1,12 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
+  kmsconConfigDir = pkgs.writeTextDir "kmscon.conf" config.services.kmscon.extraConfig;
   kmsconSession = pkgs.writeShellScript "kmscon-session" ''
     exec ${pkgs.kmscon}/bin/kmscon \
+    --configdir ${kmsconConfigDir} \
     --vt=1 --seats=seat0 --no-switchvt \
     --login -- ${pkgs.shadow}/bin/login -p -f "''${SUDO_USER:-$USER}"
   '';
