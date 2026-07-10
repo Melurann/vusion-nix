@@ -1,15 +1,5 @@
-{pkgs, ...}: {
+_: {
   services = {
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.zsh}/bin/zsh";
-          user = "greeter";
-        };
-      };
-    };
-
     # <https://nixos.wiki/wiki/Logind>
     logind.settings.Login = {
       # don’t shutdown when power button is short-pressed
@@ -18,14 +8,12 @@
       HandlePowerKeyLongPress = "poweroff";
     };
 
+    xserver.xkb.layout = "de";
+
     kmscon = {
       enable = true;
       hwRender = true;
-
-      extraConfig = ''
-        drm = true;
-        xkb-layout=de;
-      '';
+      useXkbConfig = true;
     };
   };
 }
