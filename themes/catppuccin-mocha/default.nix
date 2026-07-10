@@ -6,18 +6,22 @@
   fonts = {
     monospace = {
       package = pkgs.nerd-fonts.hack;
+      name = "Hack Nerd Font Mono";
     };
 
     sansSerif = {
       package = pkgs.nerd-fonts.hack;
+      name = "Hack Nerd Font";
     };
 
     serif = {
       package = pkgs.nerd-fonts.hack;
+      name = "Hack Nerd Font";
     };
 
     emoji = {
       package = pkgs.nerd-fonts.symbols-only;
+      name = "Symbols Nerd Font";
     };
   };
 }
