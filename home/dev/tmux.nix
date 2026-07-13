@@ -32,9 +32,8 @@
     ];
 
     extraConfig = ''
-      # set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
-      set -as terminal-features ",xterm-256color:RGB"
-      # set-option -sa terminal-overrides ",xterm*:Tc"
+      set -g default-terminal "tmux-256color"
+      set -as terminal-overrides ",*:Tc"
       set -g mouse off
 
       # Vim style pane selection
