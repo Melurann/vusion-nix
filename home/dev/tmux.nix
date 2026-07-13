@@ -13,7 +13,6 @@
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      better-mouse-mode
       sensible
       copycat
       yank
@@ -36,7 +35,7 @@
       # set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
       set -as terminal-features ",xterm-256color:RGB"
       # set-option -sa terminal-overrides ",xterm*:Tc"
-      set -g mouse on
+      set -g mouse off
 
       # Vim style pane selection
       bind h select-pane -L

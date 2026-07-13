@@ -8,6 +8,7 @@
     exec ${pkgs.kmscon}/bin/kmscon \
     --configdir ${kmsconConfigDir} \
     --vt=1 --seats=seat0 --no-switchvt \
+    --no-mouse \
     --login -- ${pkgs.shadow}/bin/login -p -f "''${SUDO_USER:-$USER}"
   '';
 in {
