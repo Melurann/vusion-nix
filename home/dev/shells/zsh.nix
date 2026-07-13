@@ -54,8 +54,8 @@
 
       setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 
-      if [[ -z "$TMUX" && -o interactive ]]; then
-        exec tmux new-session -A -s nixos
+      if command -v tmux >/dev/null; then
+        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && tmux new-session -A -s nixos
       fi
 
       eval "$(starship init zsh)"
