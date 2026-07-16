@@ -8,5 +8,12 @@ _: {
     # blocklistedLicenses = with lib.licenses; [ wtfpl ];
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings = {
+    extra-substituters = ["https://walker.cachix.org"];
+    extra-trusted-public-keys = [
+      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+    ];
+
+    experimental-features = ["nix-command" "flakes"];
+  };
 }

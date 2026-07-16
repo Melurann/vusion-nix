@@ -3,6 +3,7 @@ _: {
     ./container
     ./customization
     ./hardware
+    ./programs
     ./security
     ./system
   ];
