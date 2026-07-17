@@ -1,10 +1,10 @@
 _: {
   imports = [
-    ./shells
     ./editors
+    ./shells
+    ./terminals
 
     ./git.nix
-    ./tmux.nix
     ./direnv.nix
     ./fastfetch.nix
   ];

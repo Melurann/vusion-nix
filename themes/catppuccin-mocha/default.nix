@@ -3,6 +3,12 @@
   scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 
+  cursor = {
+    name = "catppuccin-Mocha-Light-Cursors";
+    package = pkgs.catppuccin-cursors.mochaLight;
+    size = 14;
+  };
+
   fonts = {
     monospace = {
       package = pkgs.nerd-fonts.hack;

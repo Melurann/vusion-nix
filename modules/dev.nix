@@ -13,8 +13,6 @@
     lazygit
     btop
     neovim
-    yazi
-    zellij
     pulseaudio
     pulsemixer
 

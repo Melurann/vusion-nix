@@ -12,7 +12,7 @@
       {
         sizes = {
           applications = 11;
-          terminal = 16;
+          terminal = 11;
           desktop = 11;
           popups = 11;
         };
@@ -20,6 +20,6 @@
       (meta.theme.fonts or {})
     ];
 
-    targets.kmscon.enable = true;
+    cursor = meta.theme.cursor or {};
   };
 }
